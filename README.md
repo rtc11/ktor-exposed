@@ -1,3 +1,5 @@
+[![Gradle Build](https://github.com/rtc11/ktor-exposed/actions/workflows/build.yml/badge.svg)](https://github.com/rtc11/ktor-exposed/actions/workflows/build.yml)
+
 # Documentation
 
 - ktor (netty)
