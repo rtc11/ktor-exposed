@@ -9,8 +9,8 @@ import org.jetbrains.exposed.sql.Database
 import javax.sql.DataSource
 
 fun Application.database() {
-    Postgres(environment.config)
-//    H2()
+//    Postgres(environment.config)
+    H2()
 }
 
 class Postgres(private val config: ApplicationConfig) {
