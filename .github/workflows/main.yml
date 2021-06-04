@@ -1,0 +1,41 @@
+name: Gradle Build
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+      # Check out current repository
+      - name: Fetch code
+        uses: actions/checkout@v2
+
+      # Install JDK 15
+      - name: Setup JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+
+      # Cache Gradle Dependencies
+      - name: Use cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
+
+      # Cache Gradle Wrapper
+      - name: Use cached wrapper
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}
+
+      # Build
+      - name: Build
+        run: ./gradlew build -x test
+
+      # Test
+      - name: Test
+        run: ./gradlew -x test
