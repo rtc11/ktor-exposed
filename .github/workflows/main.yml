@@ -14,8 +14,9 @@ jobs:
 
       # Install JDK 15
       - name: Setup JDK 15
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
+          distribution: adopt
           java-version: 15
 
       # Cache Gradle Dependencies
