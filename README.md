@@ -1,4 +1,4 @@
-[![Gradle Build](https://github.com/rtc11/ktor-exposed/actions/workflows/build.yml/badge.svg)](https://github.com/rtc11/ktor-exposed/actions/workflows/build.yml)
+[![Gradle Build](https://github.com/rtc11/ktor-exposed/actions/workflows/main.yml/badge.svg)](https://github.com/rtc11/ktor-exposed/actions/workflows/main.yml)
 
 # Documentation
 
