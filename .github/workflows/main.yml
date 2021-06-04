@@ -27,8 +27,7 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-          ${{ runner.os }}-gradle-
+          restore-keys: ${{ runner.os }}-gradle-
 
       # Build
       - name: Build
@@ -40,7 +39,6 @@ jobs:
 
       # Remove files that we dont want to cache
       - name: Cleanup Gradle Cache
-        # Restoring these files from a GitHub Actions cache might cause problems for future builds.
         run: |
           rm -f ~/.gradle/caches/modules-2/modules-2.lock
           rm -f ~/.gradle/caches/modules-2/gc.properties
