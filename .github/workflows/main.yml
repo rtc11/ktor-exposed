@@ -38,4 +38,4 @@ jobs:
 
       # Test
       - name: Test
-        run: ./gradlew -x test
+        run: ./gradlew test
