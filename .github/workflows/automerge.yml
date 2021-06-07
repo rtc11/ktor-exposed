@@ -1,0 +1,21 @@
+name: Auto merge
+
+on:
+  workflow_run:
+    types:
+      - completed
+    workflows:
+      - 'Gradle Build'
+
+jobs:
+  merge:
+    name: Merge
+    runs-on: ubuntu-latest
+    steps:
+
+      # Squash minor/patch releases (semantic versioning v2)
+      - name: Squash
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        uses: ridedott/merge-me-action@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
